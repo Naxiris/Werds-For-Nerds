@@ -1,0 +1,18 @@
+# Ignore virtual environment
+venv/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Local DB
+db.sqlite3
+
+# Environment variables
+.env
+
+# VSCode project files
+.vscode/
+
+# Mac OS junk
+.DS_Store
