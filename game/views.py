@@ -5,6 +5,9 @@ from django.contrib.auth.models import User
 from .models import UserProfile, Score
 
 
+# Register view
+
+
 # ------------------------------
 # Home
 # ------------------------------
@@ -12,7 +15,7 @@ def home(request):
     return render(request, 'game/home.html')
 
 # ------------------------------
-# User Profile
+# Register
 # ------------------------------
 def register(request):
     if request.method == 'POST':
@@ -28,7 +31,6 @@ def register(request):
 # ------------------------------
 # Leaderboard
 # ------------------------------
-
 @login_required
 def leaderboard(request):
     scores = Score.objects.all().order_by('-score')[:10]  # Top 10
@@ -73,3 +75,4 @@ def game_detail(request, game_id):
         'comments': comments,
         'form': form,
     })
+

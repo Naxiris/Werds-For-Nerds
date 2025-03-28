@@ -1,0 +1,6 @@
+{% extends 'game/base.html' %}
+
+{% block content %}
+<div class="alert alert-info">You’ve been logged out.</div>
+<a class="btn btn-primary" href="{% url 'login' %}">Login again</a>
+{% endblock %}
