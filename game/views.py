@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 
+# Register view
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -15,3 +16,8 @@ def register(request):
 @login_required
 def leaderboard(request):
     return render(request, 'game/leaderboard.html')
+
+# Profile view
+@login_required
+def profile(request):
+    return render(request, 'game/profile.html')
