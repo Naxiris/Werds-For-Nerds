@@ -2,8 +2,13 @@
 
 {% block content %}
 <h2>My Profile</h2>
-<ul class="list-group">
+
+<ul class="list-group mb-4">
     <li class="list-group-item"><strong>Username:</strong> {{ user.username }}</li>
     <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
 </ul>
+
+<h4>My Scores</h4>
+<p>(Score history will appear here once integrated)</p>
 {% endblock %}
+
