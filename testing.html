@@ -14,7 +14,7 @@
             margin: 0;
             background-color: #f8f9fa;
         }
-        .game-container {
+        .game-container, .menu-container {
             max-width: 400px;
             width: 100%;
             padding: 20px;
@@ -22,19 +22,36 @@
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
+        .hidden {
+            display: none;
+        }
         .jumble-word {
             font-size: 24px;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
         }
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <div class="game-container">
+    <!-- Menu Container -->
+    <div class="menu-container" id="menu-container">
+        <h2 class="text-center">Word Jumble Game</h2>
+        <button id="start-btn" class="btn btn-primary w-100 mb-2">Start Game</button>
+        <button id="instructions-btn" class="btn btn-secondary w-100">Instructions</button>
+        <div id="instructions" class="hidden mt-3">
+            <h4>Instructions</h4>
+            <ul>
+                <li>Unscramble the jumbled word and type your guess in the input box.</li>
+                <li>Hit enter on your keyboard to submit the answer.</li>
+                <li>You earn points for each correct answer.</li>
+                <li>The game ends when the timer runs out. Enter your name to save your high score!</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container hidden" id="game-container">
         <h2 class="text-center">Word Jumble Game</h2>
         <div class="jumble-word" id="jumble-word">Loading...</div>
         <input type="text" id="guess-input" class="form-control mb-3" placeholder="Your guess">
@@ -50,6 +67,7 @@
             <button id="save-highscore-btn" class="btn btn-success w-100">Save Highscore</button>
         </div>
     </div>
+
     <script src="word_jumble.js"></script>
 </body>
 </html>

@@ -9,6 +9,19 @@ function shuffleWord(word) {
     return word.split("").sort(() => Math.random() - 0.5).join("");
 }
 
+// Show the game container and start the game
+function showGame() {
+    document.getElementById("menu-container").classList.add("hidden");
+    document.getElementById("game-container").classList.remove("hidden");
+    startGame();
+}
+
+// Show instructions
+function showInstructions() {
+    const instructions = document.getElementById("instructions");
+    instructions.classList.toggle("hidden");
+}
+
 // Start the game
 function startGame() {
     score = 0;
@@ -67,6 +80,8 @@ function saveHighscore() {
 }
 
 // Event listeners
+document.getElementById("start-btn").addEventListener("click", showGame);
+document.getElementById("instructions-btn").addEventListener("click", showInstructions);
 document.getElementById("submit-btn").addEventListener("click", checkGuess);
 document.getElementById("guess-input").addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
