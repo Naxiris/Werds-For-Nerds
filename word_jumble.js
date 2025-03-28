@@ -36,12 +36,17 @@ function startGame() {
     document.getElementById("submit-btn").disabled = false;
     document.getElementById("guess-input").disabled = false;
 
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        document.getElementById("timer").textContent = timeLeft;
+    // Clear any existing timer interval before starting a new one
+    if (timerInterval) {
+        clearInterval(timerInterval);
+    }
 
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        if (timeLeft > 0) {
+            timeLeft--;
+            document.getElementById("timer").textContent = timeLeft;
+        } else {
+            clearInterval(timerInterval); // Stop the timer when it reaches 0
             endGame();
         }
     }, 1000);
