@@ -4,6 +4,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile, Score
 
+
+# ------------------------------
+# Home
+# ------------------------------
+def home(request):
+    return render(request, 'game/home.html')
+
 # ------------------------------
 # User Profile
 # ------------------------------
