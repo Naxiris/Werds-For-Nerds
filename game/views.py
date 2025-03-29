@@ -75,4 +75,3 @@ def game_detail(request, game_id):
         'comments': comments,
         'form': form,
     })
-
