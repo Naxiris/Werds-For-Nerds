@@ -1,0 +1,22 @@
+{% extends "game/base.html" %}
+
+{% block content %}
+<h2>{{ profile.user.username }}'s Profile</h2>
+
+{% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}" alt="Avatar" style="width:100px;height:100px;">
+{% endif %}
+
+<p>Bio: {{ profile.bio }}</p>
+<p>Ranking: {{ ranking }}</p>
+
+<h3>Latest Scores</h3>
+<ul>
+    {% for score in latest_scores %}
+        <li>{{ score.score }} points on {{ score.date|date:"d M Y" }}</li>
+    {% empty %}
+        <li>No scores yet.</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

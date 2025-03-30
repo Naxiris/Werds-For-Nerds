@@ -1,0 +1,17 @@
+{% extends 'game/base.html' %}
+
+{% block content %}
+    <h1>Welcome to Werds for Nerds!</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>About the Game</h2>
+        <p>Werds for Nerds is a fun word game where you can challenge others and see who comes out on top!</p>
+    </section>
+{% endblock %}
