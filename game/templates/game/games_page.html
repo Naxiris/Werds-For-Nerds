@@ -33,7 +33,7 @@
 
 <!-- Comment List Section -->
 <h3>Recent Comments</h3>
-{% for comment in Comments %}
+{% for comment in comments %}
     <div class="comment-item">
         <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
         <p><em>Posted on: {{ comment.created_at }}</em></p>
@@ -41,5 +41,7 @@
 {% empty %}
     <p>No comments yet. Be the first to leave a comment!</p>
 {% endfor %}
+
+
 
 {% endblock %}

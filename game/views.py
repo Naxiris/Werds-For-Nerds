@@ -57,8 +57,7 @@ def user_profile(request, user_id):
 # ------------------------------
 # Game Detail
 # ------------------------------
-@login_required
-def game_detail(request, game_id):
+def game_page(request, game_id):
     game = get_object_or_404(GameOfTheWeek, id=game_id)
     comments = Comment.objects.filter(game=game)
 
@@ -69,11 +68,11 @@ def game_detail(request, game_id):
             comment.user = request.user
             comment.game = game
             comment.save()
-            return redirect('game_detail', game_id=game.id)
+            return redirect('games_page')  # Redirecting to games_page instead
     else:
         form = CommentForm()
 
-    return render(request, 'game/game_detail.html', {
+    return render(request, 'game/games_page.html', {
         'game': game,
         'comments': comments,
         'form': form,
