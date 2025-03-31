@@ -1,17 +1,28 @@
 {% extends 'game/base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1>Welcome to Werds for Nerds!</h1>
-    <nav>
-        <ul>
-            <li><a href="{% url 'register' %}">Register</a></li>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
-        </ul>
-    </nav>
+    <div class="HomeIntro">
+        <h1 class="Welcome">Welcome to </h1>
+        <h1 class="BrandName">Werds 4 Nerds!</h1>
+    </div>
+    
+    
 
     <section>
-        <h2>About the Game</h2>
-        <p>Werds for Nerds is a fun word game where you can challenge others and see who comes out on top!</p>
+        <div class="web-info">
+            <h2 class="about-title">About the Game</h2>
+            <p class="about-info">Werds for Nerds is a fun word game where you can challenge others and see who comes out on top! Unscramble as many words as possible and display your score proudly on the leaderboard for all to see! Will you be on the wall of fame or the wall of... <strong>SHAME!</strong></p>
+            <p class="about-info">Check out the leaderboard below to find out!</p>
+        </div>
+
+        <nav>
+            <span class="HomeNavSelect">
+                <img src="{% static 'images/winners_crown.png' %}" alt="Golden Crown" class="leaderboardIMG">
+                <a href="{% url 'leaderboard' %}" class="HomeNavItem">Leaderboard</a>
+                <img src="{% static 'images/jester_hat.png' %}" alt="Jester Hat" class="leaderboardIMG">
+            </span>
+        </nav>
+
     </section>
 {% endblock %}

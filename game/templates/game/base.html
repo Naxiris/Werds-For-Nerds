@@ -8,23 +8,33 @@
 
     <title>Werds 4 Nerds</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-        <a class="navbar-brand" href="{% url 'leaderboard' %}">Werds 4 Nerds</a>
-        <div class="ms-auto">
-            {% if user.is_authenticated %}
-                <span class="navbar-text me-2">Hello, {{ user.username }}!</span>
-                <a class="btn btn-outline-light btn-sm me-2" href="{% url 'user_profile' user.id %}">My Profile</a>
-                <a class="btn btn-outline-light btn-sm" href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a class="btn btn-outline-light btn-sm me-2" href="{% url 'login' %}">Login</a>
-                <a class="btn btn-success btn-sm" href="{% url 'register' %}">Register</a>
-            {% endif %}
-        </div>
-    </nav>
 
-    <div class="container mt-4">
+<body>
+    <div class="nav-container">
+        <nav class="navbar navbar-expand-lg px-3">
+            <div class="container-fluid">
+                <div class="navbar-nav flex-grow-1"></div>
+                <a class="navbar-brand position-absolute start-50 translate-middle-x NavBrand" href="{% url 'leaderboard' %}">Werds <span class="BrandNum">4</span> Nerds</a>
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                        <span class="navbar-text me-2">Hello, {{ user.username }}!</span>
+                        <a class="btn btn-outline-light btn-sm me-2" href="{% url 'user_profile' user.id %}">My Profile</a>
+                        <a class="btn btn-outline-light btn-sm" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                        <a class="btn btn-outline-light btn-sm me-2" href="{% url 'login' %}">Login</a>
+                        <a class="btn btn-success btn-sm" href="{% url 'register' %}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+
+        <!-- <img src="{% static 'images/Nav_Goo.png' %}" alt="GreenGoo" class="Nav_Goo">    -->
+    </div>
+    
+
+    <div class="mt-4">
         {% block content %}{% endblock %}
     </div>
 

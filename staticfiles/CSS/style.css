@@ -1,0 +1,13 @@
+:root {
+    --Dark_Green: #49A206;
+    --Green: #58CF00;
+    --Red: #FF2525;
+    --black: #000000;
+    --main-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    background-color: var(--Dark_Green);
+    color: white;
+    padding: 10px;
+}
