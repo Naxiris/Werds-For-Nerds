@@ -15,7 +15,12 @@ from .models import GameOfTheWeek, Comment
 # Home
 # ------------------------------
 def home(request):
-    return render(request, 'game/home.html')
+    top_scores = Score.objects.all().order_by('-score')[:10]  # Top 10
+    bottom_scores = Score.objects.all().order_by('score')[:3]  # Bottom 3
+    return render(request, 'game/homepage.html', {
+        'top_scores': top_scores,
+        'bottom_scores': bottom_scores,
+    })
 
 # ------------------------------
 # Register
