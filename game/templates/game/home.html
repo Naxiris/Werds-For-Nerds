@@ -2,31 +2,30 @@
 {% load static %}
 
 {% block content %}
-    <div class="HomeIntro">
-        <h1 class="Welcome">Welcome to </h1>
-        <h1 class="BrandName">Werds 4 Nerds!</h1>
-    </div>
-    
-    
+    <section class="gamesection">
+        <div class="game-container">
+            <div class="game-box">
+                <div class="home-gameofweek">
+                    <div class="slime-banner">
+                        <span class="gameofweektitle">Game Of The Week</span> 
+                        <div alt="GreenGoo" class="gameofweek_Goo"></div>
+                    </div> 
+                </div>
+                
+                <button class="play-button">PLAY</button>
+            </div>
+        </div>
+    </section>
 
-    <section>
+    <div class="leadersection">
+        <div class="Leaderboard">
 
-        
-        <!-- <div class="web-info">
-            <h2 class="about-title">About the Game</h2>
-            <p class="about-info">Werds for Nerds is a fun word game where you can challenge others and see who comes out on top! Unscramble as many words as possible and display your score proudly on the leaderboard for all to see! Will you be on the wall of fame or the wall of... <strong>SHAME!</strong></p>
-            <p class="about-info">Check out the leaderboard below to find out!</p>
-        </div> -->
-
-        <nav>
             <span class="HomeNavSelect">
                 <img src="{% static 'images/winners_crown.png' %}" alt="Golden Crown" class="leaderboardIMG">
                 <h1 class="HomeNavItem">Leaderboard</h1>
                 <img src="{% static 'images/jester_hat.png' %}" alt="Jester Hat" class="leaderboardIMG">
             </span>
-        </nav>
 
-    </section>
 
     <div class="Leaderboard">
 
@@ -40,11 +39,15 @@
                         <th>Time</th>
                         <th>Score</th>
                     </tr>
+                    {% for score in top_scores %}
                     <tr>
-                        <td>USERNAME</td> <!-- ADD FUNCTIONALITY -->
-                        <td>TIME</td> <!-- ADD FUNCTIONALITY -->
-                        <td>SCRORE</td> <!-- ADD FUNCTIONALITY -->
+                        <td>{{ score.user.username }}</td>
+                        <td>{{ score.date|date:"M d, Y H:i" }}</td>
+                        <td>{{ score.score }}</td>
                     </tr>
+                    {% empty %}
+                    <tr><td colspan="3">No scores yet.</td></tr>
+                    {% endfor %}
                 </table>
             </div>
     
@@ -56,13 +59,18 @@
                         <th>Time</th>
                         <th>Score</th>
                     </tr>
+                    {% for score in bottom_scores %}
                     <tr>
-                        <td>USERNAME</td> <!-- ADD FUNCTIONALITY -->
-                        <td>TIME</td> <!-- ADD FUNCTIONALITY -->
-                        <td>SCRORE</td> <!-- ADD FUNCTIONALITY -->
+                        <td>{{ score.user.username }}</td>
+                        <td>{{ score.date|date:"M d, Y H:i" }}</td>
+                        <td>{{ score.score }}</td>
                     </tr>
+                    {% empty %}
+                    <tr><td colspan="3">No scores yet.</td></tr>
+                    {% endfor %}
                 </table>
             </div>
         </div>
     </div>
+    
 {% endblock %}
