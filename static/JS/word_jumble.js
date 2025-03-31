@@ -35,7 +35,13 @@ const submitButton = document.getElementById("submit-btn");
 const highscoreNameInput = document.getElementById("highscore-name");
 
 // Utility function to shuffle a word
-const shuffleWord = (word) => word.split("").sort(() => Math.random() - 0.5).join("");
+const shuffleWord = (word) => {
+    let shuffled = word;
+    while (shuffled === word) {
+        shuffled = word.split("").sort(() => Math.random() - 0.5).join("");
+    }
+    return shuffled;
+};
 
 // Reset game state
 const resetGameState = () => {
