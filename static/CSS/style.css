@@ -57,6 +57,14 @@ body {
     font-size: 2.5rem;
 }
 
+.Nav_Goo {
+    position: relative;
+    width: 100%;
+    background-image: url('../images/Nav_Goo.png'); /* Adjust the path as needed */
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 50px; /* Adjust the height as needed */
+}
 
 /* Home Page */
 
@@ -112,6 +120,7 @@ body {
     color: white;
     font-weight: 20 !important;
     font-size: 2rem;
+    text-shadow: 0 3px 3px #0000005d;
 }
 
 .web-info {
@@ -142,4 +151,29 @@ body {
 
 .leaderboardIMG {
     width: 5rem;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* Login Page, Register Page */
+
+.login-box, .Reg-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.inner-login-form, .Inner-Reg-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
