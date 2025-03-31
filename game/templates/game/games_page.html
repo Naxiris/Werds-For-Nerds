@@ -5,7 +5,7 @@
 <!-- Game Display Section -->
 <section class="gamesection">
     <div class="game-container">
-        <div class="game-box">
+        <div class="game-gamepage-box">
             <div class="GamesPageBox">
                 <div class="GameTitle-banner">
                     <span class="GameTitle">Word Scrambler</span> 
@@ -19,36 +19,41 @@
 
 <!-- How to Play Section -->
 <div class="howtoplay">
-    <h2>How to Play</h2>
-    <p>Unscramble the letters to form a word. You have a limited amount of time to complete as many words as possible!</p>
-    <p>Press the 'Play' button above to start the game.</p>
-    <p>Your score will be displayed at the end of the game.</p>
-    <p>Good luck!</p>
+    <h2 class="text-center">How to Play</h2>
+    <p class="howto-text text-center">Unscramble the letters to form a word. You have a limited amount of time to complete as many words as possible!</p>
+    <p class="howto-text text-center">Press the 'Play' button above to start the game.</p>
 </div>
 
 <!-- Comment Section -->
 <div class="reviewsheader">Reviews </div>
 
-<h2>Comments</h2>
-{% if user.is_authenticated %}
-    <form method="POST">
-        {% csrf_token %}
-        <textarea name="comment" placeholder="Leave a comment..." required></textarea>
-        <button type="submit">Post Comment</button>
-    </form>
-{% else %}
-    <p>You need to be logged in to leave a comment.</p>
-{% endif %}
-
-<!-- Comment List Section -->
-<h3>Recent Comments</h3>
-{% for comment in Comments %}
-    <div class="comment-item">
-        <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
-        <p><em>Posted on: {{ comment.created_at }}</em></p>
+<div class="commentsection">
+    <!-- Comment List Section -->
+    <div class="comment-list">
+        {% for comment in Comments %}
+            <div class="comment-item">
+                <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+                <p><em>Posted on: {{ comment.created_at }}</em></p>
+            </div>
+        {% empty %}
+            <p>No comments yet. Be the first to leave a comment!</p>
+        {% endfor %} 
     </div>
-{% empty %}
-    <p>No comments yet. Be the first to leave a comment!</p>
-{% endfor %}
+
+    <div class="comment-form">
+        {% if user.is_authenticated %}
+            <form method="POST">
+                {% csrf_token %}
+                <textarea name="comment" placeholder="Leave a comment..." required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        {% else %}
+            <p>You need to be logged in to leave a comment.</p>
+        {% endif %}
+    </div>
+
+       
+</div>
+
 
 {% endblock %}
