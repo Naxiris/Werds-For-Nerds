@@ -177,3 +177,22 @@ body {
     flex-direction: column;
     align-items: stretch;
 }
+
+/* Profile Page */
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-family: math;
+    font-size: 1rem;
+}
