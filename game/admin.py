@@ -35,3 +35,5 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('created_at',)
     search_fields = ('user__username', 'game__title')
 
+
+
