@@ -32,18 +32,20 @@
                     <h3 class="fame">Fame!</h3>
                     <table>
                         <tr>
+                            <th>Rank</th>
                             <th>Username</th>
                             <th>Time</th>
                             <th>Score</th>
                         </tr>
                         {% for score in top_scores %}
                         <tr>
-                            <td>{{ score.user.username }}</td>
-                            <td>{{ score.date|date:"M d, Y H:i" }}</td>
-                            <td>{{ score.score }}</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.user__username }}</td>
+                            <td>{{ score.latest|date:"M d, Y H:i" }}</td>
+                            <td>{{ score.best_score }}</td>
                         </tr>
                         {% empty %}
-                        <tr><td colspan="3">No scores yet.</td></tr>
+                        <tr><td colspan="4">No scores yet.</td></tr>
                         {% endfor %}
                     </table>
                 </div>
@@ -52,18 +54,20 @@
                     <h3 class="shame">Shame!</h3>
                     <table>
                         <tr>
+                            <th>Rank</th>
                             <th>Username</th>
                             <th>Time</th>
                             <th>Score</th>
                         </tr>
                         {% for score in bottom_scores %}
                         <tr>
-                            <td>{{ score.user.username }}</td>
-                            <td>{{ score.date|date:"M d, Y H:i" }}</td>
-                            <td>{{ score.score }}</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ score.user__username }}</td>
+                            <td>{{ score.latest|date:"M d, Y H:i" }}</td>
+                            <td>{{ score.best_score }}</td>
                         </tr>
                         {% empty %}
-                        <tr><td colspan="3">No scores yet.</td></tr>
+                        <tr><td colspan="4">No scores yet.</td></tr>
                         {% endfor %}
                     </table>
                 </div>
