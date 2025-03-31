@@ -1,5 +1,20 @@
 // Word list
-const words = ["python", "javascript", "django", "react", "angular", "bootstrap", "jquery", "flask"];
+const words = [
+    "python", "javascript", "django", "react", "angular", "bootstrap", "jquery", "flask",
+    "typescript", "html", "css", "node", "express", "mongodb", "postgresql", "sqlite",
+    "algorithm", "function", "variable", "constant", "object", "array", "string", "integer",
+    "boolean", "null", "undefined", "class", "inheritance", "polymorphism", "encapsulation",
+    "recursion", "iteration", "closure", "callback", "promise", "async", "await", "event",
+    "listener", "framework", "library", "component", "state", "props", "context", "redux",
+    "api", "endpoint", "request", "response", "json", "xml", "authentication", "authorization",
+    "cookie", "session", "token", "encryption", "hashing", "debugging", "testing", "refactoring",
+    "deployment", "container", "docker", "kubernetes", "virtualization", "cloud", "server",
+    "frontend", "backend", "fullstack", "developer", "software", "engineering", "design",
+    "architecture", "performance", "optimization", "scalability", "security", "accessibility",
+    "usability", "responsive", "mobile", "desktop", "browser", "compatibility", "versioning",
+    "repository", "branch", "commit", "merge", "pull", "push", "fork", "clone", "issue",
+    "bug", "feature", "sprint", "agile", "scrum", "kanban", "waterfall", "prototype", "wireframe"
+];
 
 // Game state variables
 let currentWord = "";
