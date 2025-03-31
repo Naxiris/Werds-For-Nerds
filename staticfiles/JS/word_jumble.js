@@ -16,11 +16,124 @@ const words = [
     "bug", "feature", "sprint", "agile", "scrum", "kanban", "waterfall", "prototype", "wireframe"
 ];
 
+// Word hints
+const wordHints = {
+    python: "A popular programming language named after a snake.",
+    javascript: "A programming language commonly used for web development.",
+    django: "A Python web framework named after a jazz guitarist.",
+    react: "A JavaScript library for building user interfaces.",
+    angular: "A TypeScript-based web application framework.",
+    bootstrap: "A CSS framework for responsive web design.",
+    jquery: "A JavaScript library for DOM manipulation.",
+    flask: "A lightweight Python web framework.",
+    typescript: "A superset of JavaScript with static typing.",
+    html: "The standard markup language for creating web pages.",
+    css: "A style sheet language used for describing the presentation of a document.",
+    node: "A JavaScript runtime built on Chrome's V8 engine.",
+    express: "A minimal and flexible Node.js web application framework.",
+    mongodb: "A NoSQL database that stores data in JSON-like documents.",
+    postgresql: "An open-source relational database management system.",
+    sqlite: "A lightweight, serverless database engine.",
+    algorithm: "A step-by-step procedure for solving a problem.",
+    function: "A reusable block of code that performs a specific task.",
+    variable: "A named storage for data in a program.",
+    constant: "A value that does not change during program execution.",
+    object: "A collection of properties and methods in programming.",
+    array: "A data structure used to store multiple values in a single variable.",
+    string: "A sequence of characters used to represent text.",
+    integer: "A whole number, positive or negative, without decimals.",
+    boolean: "A data type with two possible values: true or false.",
+    null: "A special value representing 'no value' or 'empty'.",
+    undefined: "A variable that has been declared but not assigned a value.",
+    class: "A blueprint for creating objects in object-oriented programming.",
+    inheritance: "A mechanism where one class acquires properties of another.",
+    polymorphism: "The ability of different objects to respond to the same method.",
+    encapsulation: "The bundling of data and methods into a single unit.",
+    recursion: "A function that calls itself to solve a problem.",
+    iteration: "The repetition of a process in a program.",
+    closure: "A function that retains access to its outer scope variables.",
+    callback: "A function passed as an argument to another function.",
+    promise: "An object representing the eventual completion of an asynchronous operation.",
+    async: "A keyword used to define asynchronous functions.",
+    await: "A keyword used to wait for a promise to resolve.",
+    event: "An action or occurrence that can be handled in a program.",
+    listener: "A function that waits for and responds to an event.",
+    framework: "A platform for building applications with pre-written code.",
+    library: "A collection of pre-written code that can be reused.",
+    component: "A reusable piece of UI in modern web development.",
+    state: "An object that holds data or information about a component.",
+    props: "Short for 'properties', used to pass data to components.",
+    context: "A way to share values between components without passing props.",
+    redux: "A state management library for JavaScript applications.",
+    api: "A set of functions and protocols for building software applications.",
+    endpoint: "A specific URL where an API can be accessed.",
+    request: "A message sent to a server to perform an action.",
+    response: "The data sent back from a server after a request.",
+    json: "A lightweight data format often used for APIs.",
+    xml: "A markup language used for storing and transporting data.",
+    authentication: "The process of verifying a user's identity.",
+    authorization: "The process of granting or denying access to resources.",
+    cookie: "A small piece of data stored on the user's browser.",
+    session: "A way to store user data during a single interaction.",
+    token: "A piece of data used for authentication and authorization.",
+    encryption: "The process of converting data into a secure format.",
+    hashing: "A process of converting data into a fixed-size string.",
+    debugging: "The process of finding and fixing errors in code.",
+    testing: "The process of verifying that code works as expected.",
+    refactoring: "The process of improving code without changing its behavior.",
+    deployment: "The process of making an application available for use.",
+    container: "A lightweight, portable unit for running applications.",
+    docker: "A platform for developing, shipping, and running containers.",
+    kubernetes: "A system for automating containerized application deployment.",
+    virtualization: "The creation of virtual versions of resources.",
+    cloud: "A network of remote servers for storing and accessing data.",
+    server: "A computer or system that provides resources to other devices.",
+    frontend: "The part of a website or application that users interact with.",
+    backend: "The part of a website or application that handles data and logic.",
+    fullstack: "A developer skilled in both frontend and backend development.",
+    developer: "A person who writes and maintains code.",
+    software: "A set of instructions that tell a computer what to do.",
+    engineering: "The application of scientific principles to design and build systems.",
+    design: "The process of creating the look and feel of an application.",
+    architecture: "The high-level structure of a software system.",
+    performance: "The speed and efficiency of a software application.",
+    optimization: "The process of making a system as efficient as possible.",
+    scalability: "The ability of a system to handle increased workload.",
+    security: "The protection of systems and data from unauthorized access.",
+    accessibility: "The design of systems for use by people with disabilities.",
+    usability: "The ease of use and learnability of a system.",
+    responsive: "A design approach that adapts to different screen sizes.",
+    mobile: "Applications or websites designed for use on smartphones.",
+    desktop: "Applications or websites designed for use on computers.",
+    browser: "A software application for accessing the web.",
+    compatibility: "The ability of a system to work with different devices or software.",
+    versioning: "The process of managing changes to software over time.",
+    repository: "A storage location for software code.",
+    branch: "A separate line of development in version control.",
+    commit: "A saved change in version control.",
+    merge: "The process of combining changes from different branches.",
+    pull: "The process of fetching changes from a remote repository.",
+    push: "The process of sending changes to a remote repository.",
+    fork: "A copy of a repository that you can modify independently.",
+    clone: "A local copy of a remote repository.",
+    issue: "A task or bug tracked in a project.",
+    bug: "An error or flaw in software.",
+    feature: "A new functionality added to software.",
+    sprint: "A set period of time for completing specific tasks in Agile.",
+    agile: "A methodology for iterative and incremental software development.",
+    scrum: "A framework for managing Agile projects.",
+    kanban: "A visual workflow management method.",
+    waterfall: "A linear approach to software development.",
+    prototype: "An early model of a product.",
+    wireframe: "A basic visual guide for a website or application layout."
+};
+
 // Game state variables
 let currentWord = "";
 let score = 0;
 let timeLeft = 60;
 let timerInterval;
+let hintUsed = false; // Tracks if the hint was used for the current word
 
 // Cached DOM elements
 const menuContainer = document.getElementById("menu-container");
@@ -56,6 +169,10 @@ const resetGameState = () => {
     retryButton.classList.add("hidden");
     submitButton.disabled = false;
     guessInput.disabled = false;
+
+    // Reset the hintUsed flag and clear the hint
+    hintUsed = false;
+    document.getElementById("hint").textContent = "";
 };
 
 // Start the game
@@ -83,11 +200,17 @@ const startGame = () => {
 const checkGuess = () => {
     const userGuess = guessInput.value.trim().toLowerCase();
     if (userGuess === currentWord) {
-        score++;
+        const pointsEarned = hintUsed ? 50 : 100;
+        score += pointsEarned;
         scoreElement.textContent = score;
+        alert(`Correct! You earned ${pointsEarned} points.`);
+        
+        // Reset for the next word
         guessInput.value = "";
         currentWord = words[Math.floor(Math.random() * words.length)];
         jumbleWordElement.textContent = shuffleWord(currentWord);
+        hintUsed = false;
+        document.getElementById("hint").textContent = "";
     }
 };
 
@@ -124,6 +247,18 @@ const showInstructions = () => {
     instructions.classList.toggle("hidden");
 };
 
+// Show hint
+const showHint = () => {
+    const hintElement = document.getElementById("hint");
+    const hint = wordHints[currentWord];
+    if (hint) {
+        hintElement.textContent = `Hint: ${hint}`;
+        hintUsed = true; // Mark that the hint was used
+    } else {
+        hintElement.textContent = "No hint available for this word.";
+    }
+};
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", showGame);
 document.getElementById("instructions-btn").addEventListener("click", showInstructions);
@@ -135,5 +270,6 @@ guessInput.addEventListener("keypress", (e) => {
 });
 retryButton.addEventListener("click", startGame);
 document.getElementById("save-highscore-btn").addEventListener("click", saveHighscore);
+document.getElementById("hint-btn").addEventListener("click", showHint);
 
 // Initialize the game
