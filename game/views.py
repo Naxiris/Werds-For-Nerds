@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from .models import UserProfile, Score
 from .models import GameOfTheWeek, Comment
 from .forms import CommentForm
-
+from django.shortcuts import render
+from .models import GameOfTheWeek, Comment
 
 # Register view
 
@@ -85,6 +86,22 @@ def game_detail(request, game_id):
 def games_page(request):
     games = GameOfTheWeek.objects.all()
     return render(request, 'game/games_page.html', {'games': games})
+
+
+# ------------------------------
+# Comments 
+# ------------------------------
+
+def games_page(request):
+    games = GameOfTheWeek.objects.all()
+    comments = Comment.objects.all().order_by('-created_at')  # Get all comments, newest first
+    
+    context = {
+        'games': games,
+        'comments': comments,
+    }
+    
+    return render(request, 'game/games_page.html', context)
 
 
 
