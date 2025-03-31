@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Max
 from django.contrib.auth.models import User
 from .models import UserProfile, Score
 from .models import GameOfTheWeek, Comment
@@ -8,19 +9,38 @@ from .forms import CommentForm
 from django.shortcuts import render
 from .models import GameOfTheWeek, Comment
 
-# Register view
-
 
 # ------------------------------
 # Home
 # ------------------------------
+from django.db.models import Max
+from django.shortcuts import render
+from .models import Score
+
 def home(request):
-    top_scores = Score.objects.all().order_by('-score')[:10]  # Top 10
-    bottom_scores = Score.objects.all().order_by('score')[:3]  # Bottom 3
+    # Top 6 users by best score
+    top_scores = (
+        Score.objects.values('user__username')
+        .annotate(best_score=Max('score'), latest=Max('date'))
+        .order_by('-best_score')[:6]
+    )
+
+    # Get the usernames already in top_scores
+    top_usernames = [entry['user__username'] for entry in top_scores]
+
+    # Bottom 6 users, excluding top users
+    bottom_scores = (
+        Score.objects.values('user__username')
+        .annotate(best_score=Max('score'), latest=Max('date'))
+        .exclude(user__username__in=top_usernames)
+        .order_by('best_score')[:6]
+    )
+
     return render(request, 'game/home.html', {
         'top_scores': top_scores,
         'bottom_scores': bottom_scores,
     })
+
 
 # ------------------------------
 # Register
