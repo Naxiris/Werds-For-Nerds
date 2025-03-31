@@ -16,6 +16,23 @@ const words = [
     "bug", "feature", "sprint", "agile", "scrum", "kanban", "waterfall", "prototype", "wireframe"
 ];
 
+// Word hints
+const wordHints = {
+    python: "A popular programming language named after a snake.",
+    javascript: "A programming language commonly used for web development.",
+    django: "A Python web framework named after a jazz guitarist.",
+    react: "A JavaScript library for building user interfaces.",
+    angular: "A TypeScript-based web application framework.",
+    bootstrap: "A CSS framework for responsive web design.",
+    jquery: "A JavaScript library for DOM manipulation.",
+    flask: "A lightweight Python web framework.",
+    typescript: "A superset of JavaScript with static typing.",
+    html: "The standard markup language for creating web pages.",
+    css: "A style sheet language used for describing the presentation of a document.",
+    node: "A JavaScript runtime built on Chrome's V8 engine.",
+    // Add more words and hints as needed
+};
+
 // Game state variables
 let currentWord = "";
 let score = 0;
