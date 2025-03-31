@@ -3,7 +3,7 @@
 
 {% block content %}
     <section class="gamesection">
-        <div class="game-container">
+        <div class="home-game-container">
             <div class="game-box">
                 <div class="home-gameofweek">
                     <div class="slime-banner">
@@ -12,7 +12,7 @@
                     </div> 
                 </div>
                 
-                <button class="play-button">PLAY</button>
+                <a href="{% url 'game' %}" class="play-button">PLAY</a>
             </div>
         </div>
     </section>
