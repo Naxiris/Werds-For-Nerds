@@ -18,8 +18,21 @@ h1, h2, h3, h4, h5, h6 {
     font-style: normal;
 }
 
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: rgb(162 198 255);;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(162 198 255);
+}
+
+.content {
+    flex: 1 0 auto;
 }
 
 /* Navbar */
@@ -66,8 +79,7 @@ body {
 /* Footer */
 .footer {
     background-color: var(--Dark_Green);
-    position: sticky;
-    bottom: 0;
+    flex-shrink: 0;
     width: 100%;
 }
 
@@ -76,7 +88,7 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-
+    padding: 1rem 0;
     color: white;
 }
 
@@ -179,6 +191,23 @@ body {
     margin: 20px auto;
     position: relative;
 }
+.game-container, .menu-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.hidden {
+    display: none;
+}
+.jumble-word {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 /* Play button */
 .play-button {
@@ -215,50 +244,6 @@ body {
     transform: translateY(-22px);
 }
 
-/* Login Page, Register Page */
-
-.login-box, .Reg-Box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    background-color: var(--TextBG);
-    color: var(--TextBlack);
-    padding: 1rem;
-    border-radius: .5rem;
-    box-shadow: var(--main-box-shadow);
-
-    margin-left: 5rem;
-    margin-right: 5rem;
-}
-
-.inner-login-form, .Inner-Reg-Form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-/* Profile Page */
-
-.profile-info {
-    display: flex;
-    flex-direction: column;
-
-    background-color: var(--TextBG);
-    color: var(--TextBlack);
-    padding: 1rem;
-    border-radius: .5rem;
-    box-shadow: var(--main-box-shadow);
-
-    margin-left: 5rem;
-    margin-right: 5rem;
-
-    font-family: math;
-    font-size: 1rem;
-}
-
-/* Leaderboard Page */
 .leadersection {
     display: flex;
     justify-content: center;
@@ -306,9 +291,148 @@ table {
 th, td {
     padding: 8px;
     border-bottom: 1px solid #ccc;
+
+    font-family: math;
+    font-size: 1.2rem;
 }
 
 th {
     background: #999;
     color: white;
+
+    font-weight: 100;
+}
+
+/* Login Page, Register Page */
+
+.login-box, .Reg-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.inner-login-form, .Inner-Reg-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Profile Page */
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-family: math;
+    font-size: 1rem;
+}
+
+/* Game Page */
+
+.GamesPageBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.GameTitle-banner {
+    background-size: contain;
+    display: inline-block;
+    position: relative;
+
+}
+
+.game-gamepage-box {
+    height: 20rem;
+    background: #6c81db;
+    margin: 20px auto;
+    position: relative;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.GameTitle {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 2rem;
+    text-shadow: 0 3px 3px #173600;
+}
+
+.howtoplay {
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.howto-text {
+    font-family: math;
+    font-size: 1.3rem;
+    color: var(--TextBlack);
+}
+
+.reviewsheader {
+    background-color: var(--Green);
+    font-family: 'Irish Grover', system-ui;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
+
+.commentsection {
+    display: flex;
+    justify-content: space-between;
+
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.comment-list, .comment-form {
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+.comment-list {
+    width: 40rem;
+
+    font-family: math;
+    font-size: 1.2rem;
+}
+
+.comment-form {
+    margin-left: 1rem;
+    font-family: math;
+    font-size: 1.2rem;
 }
