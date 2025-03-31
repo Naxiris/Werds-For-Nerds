@@ -2,7 +2,39 @@
 
 {% block content %}
 <h1>Play Werds for Nerds</h1>
-<div id="game-container">
-    <!-- Your game logic will go here -->
+<!-- Menu Container -->
+<div class="menu-container" id="menu-container">
+    <h2 class="text-center">Word Jumble Game</h2>
+    <button id="start-btn" class="btn btn-primary w-100 mb-2">Start Game</button>
+    <button id="instructions-btn" class="btn btn-secondary w-100">Instructions</button>
+    <div id="instructions" class="hidden mt-3">
+        <h4>Instructions</h4>
+        <ul>
+            <li>Unscramble the jumbled word and type your guess in the input box.</li>
+            <li>Hit enter on your keyboard to submit the answer.</li>
+            <li>You earn points for each correct answer.</li>
+            <li>The game ends when the timer runs out. Enter your name to save your high score!</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Game Container -->
+<div class="game-container hidden" id="game-container">
+    <h2 class="text-center">Word Jumble Game</h2>
+    <div class="jumble-word" id="jumble-word">Loading...</div>
+    <input type="text" id="guess-input" class="form-control mb-3" placeholder="Your guess">
+    <button id="submit-btn" class="btn btn-primary w-100">Submit</button>
+    <button id="retry-btn" class="btn btn-secondary w-100 mt-2 hidden">Retry</button>
+    <button id="hint-btn" class="btn btn-info w-100 mt-2">Show Hint</button>
+    <p id="hint" class="mt-3 text-muted"></p>
+    <div class="mt-3">
+        <p>Score: <span id="score">0</span></p>
+        <p>Time Left: <span id="timer">60</span> seconds</p>
+    </div>
+    <div id="highscore-form" class="hidden mt-3">
+        <h4>Enter Highscore</h4>
+        <input type="text" id="highscore-name" class="form-control mb-2" placeholder="Your name">
+        <button id="save-highscore-btn" class="btn btn-success w-100">Save Highscore</button>
+    </div>
 </div>
 {% endblock %}
