@@ -6,6 +6,7 @@ from django.contrib.auth.admin import UserAdmin
 # Unregister the default User admin
 admin.site.unregister(User)
 
+
 # Re-register User with custom admin settings
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
