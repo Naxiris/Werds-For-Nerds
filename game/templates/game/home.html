@@ -26,51 +26,50 @@
                 <img src="{% static 'images/jester_hat.png' %}" alt="Jester Hat" class="leaderboardIMG">
             </span>
 
-
-    <div class="Leaderboard">
-
-        <div class="columns">
-    
-            <div class="Fame_table">
-                <h3 class="fame">Fame!</h3>
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Time</th>
-                        <th>Score</th>
-                    </tr>
-                    {% for score in top_scores %}
-                    <tr>
-                        <td>{{ score.user.username }}</td>
-                        <td>{{ score.date|date:"M d, Y H:i" }}</td>
-                        <td>{{ score.score }}</td>
-                    </tr>
-                    {% empty %}
-                    <tr><td colspan="3">No scores yet.</td></tr>
-                    {% endfor %}
-                </table>
-            </div>
-    
-            <div class="Shame_table">
-                <h3 class="shame">Shame!</h3>
-                <table>
-                    <tr>
-                        <th>Username</th>
-                        <th>Time</th>
-                        <th>Score</th>
-                    </tr>
-                    {% for score in bottom_scores %}
-                    <tr>
-                        <td>{{ score.user.username }}</td>
-                        <td>{{ score.date|date:"M d, Y H:i" }}</td>
-                        <td>{{ score.score }}</td>
-                    </tr>
-                    {% empty %}
-                    <tr><td colspan="3">No scores yet.</td></tr>
-                    {% endfor %}
-                </table>
+            <div class="columns">
+        
+                <div class="Fame_table">
+                    <h3 class="fame">Fame!</h3>
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Time</th>
+                            <th>Score</th>
+                        </tr>
+                        {% for score in top_scores %}
+                        <tr>
+                            <td>{{ score.user.username }}</td>
+                            <td>{{ score.date|date:"M d, Y H:i" }}</td>
+                            <td>{{ score.score }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3">No scores yet.</td></tr>
+                        {% endfor %}
+                    </table>
+                </div>
+        
+                <div class="Shame_table">
+                    <h3 class="shame">Shame!</h3>
+                    <table>
+                        <tr>
+                            <th>Username</th>
+                            <th>Time</th>
+                            <th>Score</th>
+                        </tr>
+                        {% for score in bottom_scores %}
+                        <tr>
+                            <td>{{ score.user.username }}</td>
+                            <td>{{ score.date|date:"M d, Y H:i" }}</td>
+                            <td>{{ score.score }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr><td colspan="3">No scores yet.</td></tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
     
 {% endblock %}
