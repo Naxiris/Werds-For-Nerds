@@ -1,0 +1,145 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Luckiest+Guy&display=swap');
+
+:root {
+    --Dark_Green: #49A206;
+    --Green: #58CF00;
+    --TitleGreen: #C5F452;
+    --Red: #FF2525;
+    --black: #000000;
+    --TextBlack: #333333;
+    --TextBG: #eaeeff;
+    --main-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Irish Grover", system-ui;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(162 198 255);;
+}
+
+/* Navbar */
+/* .nav-container {
+    position: relative;
+    width: 100%;
+} */
+
+.navbar {
+    background-color: var(--Dark_Green);
+    color: white;
+    padding: 10px;
+    box-shadow: 0 3px 3px #00000080;
+}
+
+.NavBrand {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--TitleGreen);
+    font-size: 2rem;
+    text-shadow: 0 3px 3px #173600;
+}
+
+.navbar-brand:focus, .navbar-brand:hover {
+    text-decoration: none;
+    color: var(--TitleGreen);
+}
+
+.BrandNum{
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--TitleGreen);
+    font-size: 2.5rem;
+}
+
+
+/* Home Page */
+
+.HomeIntro {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #4c4c4c;
+    width: 100%;
+    color: white;
+    text-shadow: 0 3px 3px #0000009c;
+    box-shadow: 0 3px 3px #00000033;
+
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+.Welcome {
+    margin-bottom: 1rem;
+
+    font-family: math;
+}
+
+.BrandName {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--TitleGreen);
+    font-size: 2.5rem;
+    text-shadow: 0 3px 3px #173600;
+    text-decoration: underline wavy;
+    text-underline-offset: .5rem;
+
+    margin-bottom: 1rem;
+}
+
+.HomeNavSelect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "LUCKIEST GUY", system-ui;
+    font-style: normal;
+    color: white;
+    margin-top: 1rem;
+}
+
+.HomeNavItem {
+    color: white;
+    font-weight: 20 !important;
+    font-size: 2rem;
+}
+
+.web-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 2rem;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.about-title, .about-info {
+    font-family: math;
+}
+
+.about-info {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.leaderboardIMG {
+    width: 5rem;
+}
