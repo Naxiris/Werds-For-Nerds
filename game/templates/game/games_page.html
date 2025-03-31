@@ -21,10 +21,25 @@
 
 <!-- Comment Section -->
 <h2>Comments</h2>
-<form method="POST">
-    {% csrf_token %}
-    <textarea name="comment" placeholder="Leave a comment..." required></textarea>
-    <button type="submit">Post Comment</button>
-</form>
+{% if user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        <textarea name="comment" placeholder="Leave a comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+    </form>
+{% else %}
+    <p>You need to be logged in to leave a comment.</p>
+{% endif %}
+
+<!-- Comment List Section -->
+<h3>Recent Comments</h3>
+{% for comment in Comments %}
+    <div class="comment-item">
+        <p><strong>{{ comment.user.username }}:</strong> {{ comment.content }}</p>
+        <p><em>Posted on: {{ comment.created_at }}</em></p>
+    </div>
+{% empty %}
+    <p>No comments yet. Be the first to leave a comment!</p>
+{% endfor %}
 
 {% endblock %}

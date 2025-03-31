@@ -19,7 +19,6 @@
                 <a class="navbar-brand position-absolute start-50 translate-middle-x NavBrand" href="{% url 'home' %}">Werds <span class="BrandNum">4</span> Nerds</a>
                 <div class="d-flex align-items-center">
                     {% if user.is_authenticated %}
-                        <span class="navbar-text me-2">Hello, {{ user.username }}!</span>
                         <a class="btn btn-outline-light btn-sm me-2" href="{% url 'user_profile' user.id %}">My Profile</a>
                         <form method="POST" action="{% url 'logout' %}">
                             {% csrf_token %}

@@ -118,6 +118,9 @@ body {
 
 .HomeNavItem {
     color: white;
+    font-family: 'LUCKIEST GUY', system-ui;
+    text-decoration: underline;
+    text-underline-offset: .3rem;
     font-weight: 20 !important;
     font-size: 2rem;
     text-shadow: 0 3px 3px #0000005d;
@@ -152,6 +155,7 @@ body {
 .leaderboardIMG {
     width: 5rem;
     filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+    transform: translateY(-22px);
 }
 
 /* Login Page, Register Page */
@@ -176,4 +180,73 @@ body {
     display: flex;
     flex-direction: column;
     align-items: stretch;
+}
+
+/* Profile Page */
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-family: math;
+    font-size: 1rem;
+}
+
+/* Leaderboard Page */
+
+.Leaderboard {
+    width: 90%;
+    margin: 2rem;
+    border-radius: 10px;
+}
+
+.Fame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+.Shame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fame, .shame {
+    border-radius: 10px;
+}
+
+.shame {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background: #999;
+    color: white;
 }

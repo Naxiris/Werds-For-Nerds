@@ -10,19 +10,59 @@
     
 
     <section>
-        <div class="web-info">
+
+        
+        <!-- <div class="web-info">
             <h2 class="about-title">About the Game</h2>
             <p class="about-info">Werds for Nerds is a fun word game where you can challenge others and see who comes out on top! Unscramble as many words as possible and display your score proudly on the leaderboard for all to see! Will you be on the wall of fame or the wall of... <strong>SHAME!</strong></p>
             <p class="about-info">Check out the leaderboard below to find out!</p>
-        </div>
+        </div> -->
 
         <nav>
             <span class="HomeNavSelect">
                 <img src="{% static 'images/winners_crown.png' %}" alt="Golden Crown" class="leaderboardIMG">
-                <a href="{% url 'leaderboard' %}" class="HomeNavItem">Leaderboard</a>
+                <h1 class="HomeNavItem">Leaderboard</h1>
                 <img src="{% static 'images/jester_hat.png' %}" alt="Jester Hat" class="leaderboardIMG">
             </span>
         </nav>
 
     </section>
+
+    <div class="Leaderboard">
+
+        <div class="columns">
+    
+            <div class="Fame_table">
+                <h3 class="fame">Fame!</h3>
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>Time</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td>USERNAME</td> <!-- ADD FUNCTIONALITY -->
+                        <td>TIME</td> <!-- ADD FUNCTIONALITY -->
+                        <td>SCRORE</td> <!-- ADD FUNCTIONALITY -->
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="Shame_table">
+                <h3 class="shame">Shame!</h3>
+                <table>
+                    <tr>
+                        <th>Username</th>
+                        <th>Time</th>
+                        <th>Score</th>
+                    </tr>
+                    <tr>
+                        <td>USERNAME</td> <!-- ADD FUNCTIONALITY -->
+                        <td>TIME</td> <!-- ADD FUNCTIONALITY -->
+                        <td>SCRORE</td> <!-- ADD FUNCTIONALITY -->
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 {% endblock %}
