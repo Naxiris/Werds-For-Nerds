@@ -154,9 +154,9 @@ body {
     filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
 }
 
-/* Login Box */
+/* Login Page, Register Page */
 
-.login-box {
+.login-box, .Reg-Box {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,7 +172,7 @@ body {
     margin-right: 5rem;
 }
 
-.inner-login-form {
+.inner-login-form, .Inner-Reg-Form {
     display: flex;
     flex-direction: column;
     align-items: stretch;
