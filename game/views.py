@@ -15,12 +15,7 @@ from .models import GameOfTheWeek, Comment
 # Home
 # ------------------------------
 def home(request):
-    top_scores = Score.objects.all().order_by('-score')[:10]  # Top 10
-    bottom_scores = Score.objects.all().order_by('score')[:3]  # Bottom 3
-    return render(request, 'game/home.html', {
-        'top_scores': top_scores,
-        'bottom_scores': bottom_scores,
-    })
+    return render(request, 'game/home.html')
 
 # ------------------------------
 # Register
@@ -59,34 +54,11 @@ def user_profile(request, user_id):
         'ranking': ranking,
     })
 
-# ------------------------------
-# Game Detail
-# ------------------------------
-def game_page(request, game_id):
-    game = get_object_or_404(GameOfTheWeek, id=game_id)
-    comments = Comment.objects.filter(game=game)
-
-    if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.user = request.user
-            comment.game = game
-            comment.save()
-            return redirect('games_page')  # Redirecting to games_page instead
-    else:
-        form = CommentForm()
-
-    return render(request, 'game/games_page.html', {
-        'game': game,
-        'comments': comments,
-        'form': form,
-    })
 
 # ------------------------------
 # Games Page
 # ------------------------------
-@login_required
+
 def games_page(request):
     games = GameOfTheWeek.objects.all()
     return render(request, 'game/games_page.html', {'games': games})
@@ -107,5 +79,9 @@ def games_page(request):
     
     return render(request, 'game/games_page.html', context)
 
-
-
+# ------------------------------
+# Game View
+# ------------------------------
+@login_required
+def game_view(request):
+    return render(request, 'game/game.html')
