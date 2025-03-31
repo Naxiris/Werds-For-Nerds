@@ -13,9 +13,6 @@ from .models import GameOfTheWeek, Comment
 # ------------------------------
 # Home
 # ------------------------------
-from django.db.models import Max
-from django.shortcuts import render
-from .models import Score
 
 def home(request):
     # Top 6 users by best score
