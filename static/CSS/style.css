@@ -196,3 +196,61 @@ body {
     font-family: math;
     font-size: 1rem;
 }
+
+/* Leaderboard Page */
+
+.Leaderboard {
+    padding: 20px;
+    width: 90%;
+    margin: 2rem;
+    border-radius: 10px;
+}
+
+.Fame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+.Shame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+h2 {
+    font-size: 24px;
+    background: #bbb;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fame, .shame {
+    border-radius: 10px;
+}
+
+.shame {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background: #999;
+    color: white;
+}
