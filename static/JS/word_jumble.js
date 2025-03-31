@@ -273,3 +273,4 @@ document.getElementById("save-highscore-btn").addEventListener("click", saveHigh
 document.getElementById("hint-btn").addEventListener("click", showHint);
 
 // Initialize the game
+
