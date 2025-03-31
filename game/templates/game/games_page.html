@@ -1,25 +1,34 @@
 {% extends "game/base.html" %}
 
 {% block content %}
-<h1>Werds 4 Nerds Game</h1>
-<p>Welcome to the Werds 4 Nerds game page. Play the game and share your thoughts!</p>
 
-<!-- Game Embed Section -->
-<h1>Werds 4 Nerds Games</h1>
-<p>Explore and play the available games below!</p>
-
-<!-- Game List Section -->
-{% for game in games %}
-    <div class="game-item">
-        <h2>{{ game.title }}</h2>
-        <p>{{ game.description }}</p>
-        <p><strong>Available from:</strong> {{ game.start_date }} to {{ game.end_date }}</p>
+<!-- Game Display Section -->
+<section class="gamesection">
+    <div class="game-container">
+        <div class="game-box">
+            <div class="GamesPageBox">
+                <div class="GameTitle-banner">
+                    <span class="GameTitle">Word Scrambler</span> 
+                </div> 
+            </div>
+            
+            <button class="play-button">PLAY</button>
+        </div>
     </div>
-{% empty %}
-    <p>No games available at the moment.</p>
-{% endfor %}
+</section>
+
+<!-- How to Play Section -->
+<div class="howtoplay">
+    <h2>How to Play</h2>
+    <p>Unscramble the letters to form a word. You have a limited amount of time to complete as many words as possible!</p>
+    <p>Press the 'Play' button above to start the game.</p>
+    <p>Your score will be displayed at the end of the game.</p>
+    <p>Good luck!</p>
+</div>
 
 <!-- Comment Section -->
+<div class="reviewsheader">Reviews </div>
+
 <h2>Comments</h2>
 {% if user.is_authenticated %}
     <form method="POST">
