@@ -1,0 +1,314 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&family=Luckiest+Guy&display=swap');
+
+:root {
+    --Dark_Green: #49A206;
+    --Green: #58CF00;
+    --TitleGreen: #C5F452;
+    --Red: #FF2525;
+    --black: #000000;
+    --TextBlack: #333333;
+    --TextBG: #eaeeff;
+    --main-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Global Styles */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Irish Grover", system-ui;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(162 198 255);;
+}
+
+/* Navbar */
+
+.navbar {
+    background-color: var(--Dark_Green);
+    color: white;
+    padding: 10px;
+}
+
+.NavBrand {
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--TitleGreen);
+    font-size: 2rem;
+    text-shadow: 0 3px 3px #173600;
+}
+
+.navbar-brand:focus, .navbar-brand:hover {
+    text-decoration: none;
+    color: var(--TitleGreen);
+}
+
+.BrandNum{
+    font-family: "Irish Grover", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--TitleGreen);
+    font-size: 2.5rem;
+}
+
+.Nav_Goo {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    background-image: url('../images/Nav_Goo.png'); /* Adjust the path as needed */
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 50px; /* Adjust the height as needed */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Footer */
+.footer {
+    background-color: var(--Dark_Green);
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
+
+.footercontent {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    color: white;
+}
+
+.footertext {
+    color: white;
+    font-family: math;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.FooterObject {
+    display: flex;
+    align-items: center;
+}
+
+.FooterObject a {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.footer .fa-square-github {
+    font-size: 2rem;  /* Adjust size as needed */
+    color: #ffffff;  /* Adjust color as needed */
+    margin-right: 0.5rem;
+}
+
+.footer a:hover .fa-square-github {
+    color: #023a00;  /* GitHub's brand color */
+}
+
+/* Home Page */
+
+.HomeNavSelect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    font-family: "LUCKIEST GUY", system-ui;
+    font-style: normal;
+    color: white;
+    margin-top: 1rem;
+}
+
+.HomeNavItem {
+    color: white;
+    font-family: 'LUCKIEST GUY', system-ui;
+    text-decoration: underline;
+    text-underline-offset: .3rem;
+    font-weight: 20 !important;
+    font-size: 2rem;
+    text-shadow: 0 3px 3px #0000005d;
+}
+
+.gamesection {
+    margin-top: 3rem;
+}
+
+.home-gameofweek {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slime-banner {
+    background-size: contain;
+    display: inline-block;
+    position: relative;
+
+    transform: translateY(-14px);
+}
+
+.gameofweektitle {
+    font-family: "Irish Grover", system-ui;
+    background-color: #57b700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    letter-spacing: .15rem;
+}
+
+.gameofweek_Goo {
+    position: relative;
+    z-index: -1;
+    width: 100%;
+    background-image: url('../images/Nav_Goo.png'); /* Adjust the path as needed */
+    background-repeat: repeat-x;
+    background-size: auto 100%;
+    height: 50px; /* Adjust the height as needed */
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.226));
+}
+
+/* Game box */
+.game-box {
+    width: 90%;
+    height: 20rem;
+    background: #6c81db;
+    margin: 20px auto;
+    position: relative;
+}
+
+/* Play button */
+.play-button {
+    background: var(--Green);
+    color: white;
+
+    font-family: 'LUCKIEST GUY', system-ui;
+    font-size: 20px;
+    letter-spacing: .15rem;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.play-button:hover {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.4);
+}
+
+.leaderboardIMG {
+    width: 5rem;
+    filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.3));
+    transform: translateY(-22px);
+}
+
+/* Login Page, Register Page */
+
+.login-box, .Reg-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.inner-login-form, .Inner-Reg-Form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Profile Page */
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--TextBG);
+    color: var(--TextBlack);
+    padding: 1rem;
+    border-radius: .5rem;
+    box-shadow: var(--main-box-shadow);
+
+    margin-left: 5rem;
+    margin-right: 5rem;
+
+    font-family: math;
+    font-size: 1rem;
+}
+
+/* Leaderboard Page */
+.leadersection {
+    display: flex;
+    justify-content: center;
+}
+
+.Leaderboard {
+
+    width: 90%;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.Fame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+.Shame_table{
+    background: #ddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    width: 49%;
+}
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fame, .shame {
+    border-radius: 10px;
+}
+
+.shame {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background: #999;
+    color: white;
+}
