@@ -1,0 +1,30 @@
+{% extends "game/base.html" %}
+
+{% block content %}
+<h1>Werds 4 Nerds Game</h1>
+<p>Welcome to the Werds 4 Nerds game page. Play the game and share your thoughts!</p>
+
+<!-- Game Embed Section -->
+<h1>Werds 4 Nerds Games</h1>
+<p>Explore and play the available games below!</p>
+
+<!-- Game List Section -->
+{% for game in games %}
+    <div class="game-item">
+        <h2>{{ game.title }}</h2>
+        <p>{{ game.description }}</p>
+        <p><strong>Available from:</strong> {{ game.start_date }} to {{ game.end_date }}</p>
+    </div>
+{% empty %}
+    <p>No games available at the moment.</p>
+{% endfor %}
+
+<!-- Comment Section -->
+<h2>Comments</h2>
+<form method="POST">
+    {% csrf_token %}
+    <textarea name="comment" placeholder="Leave a comment..." required></textarea>
+    <button type="submit">Post Comment</button>
+</form>
+
+{% endblock %}

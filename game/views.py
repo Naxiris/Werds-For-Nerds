@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import UserProfile, Score
+from .models import GameOfTheWeek, Comment
+from .forms import CommentForm
 
 
 # Register view
@@ -75,3 +77,14 @@ def game_detail(request, game_id):
         'comments': comments,
         'form': form,
     })
+
+# ------------------------------
+# Games Page
+# ------------------------------
+@login_required
+def games_page(request):
+    games = GameOfTheWeek.objects.all()
+    return render(request, 'game/games_page.html', {'games': games})
+
+
+
