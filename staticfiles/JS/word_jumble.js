@@ -133,6 +133,7 @@ let currentWord = "";
 let score = 0;
 let timeLeft = 60;
 let timerInterval;
+let hintUsed = false; // Tracks if the hint was used for the current word
 
 // Cached DOM elements
 const menuContainer = document.getElementById("menu-container");
@@ -168,6 +169,10 @@ const resetGameState = () => {
     retryButton.classList.add("hidden");
     submitButton.disabled = false;
     guessInput.disabled = false;
+
+    // Reset the hintUsed flag and clear the hint
+    hintUsed = false;
+    document.getElementById("hint").textContent = "";
 };
 
 // Start the game
@@ -195,11 +200,17 @@ const startGame = () => {
 const checkGuess = () => {
     const userGuess = guessInput.value.trim().toLowerCase();
     if (userGuess === currentWord) {
-        score++;
+        const pointsEarned = hintUsed ? 50 : 100;
+        score += pointsEarned;
         scoreElement.textContent = score;
+        alert(`Correct! You earned ${pointsEarned} points.`);
+        
+        // Reset for the next word
         guessInput.value = "";
         currentWord = words[Math.floor(Math.random() * words.length)];
         jumbleWordElement.textContent = shuffleWord(currentWord);
+        hintUsed = false;
+        document.getElementById("hint").textContent = "";
     }
 };
 
@@ -236,6 +247,18 @@ const showInstructions = () => {
     instructions.classList.toggle("hidden");
 };
 
+// Show hint
+const showHint = () => {
+    const hintElement = document.getElementById("hint");
+    const hint = wordHints[currentWord];
+    if (hint) {
+        hintElement.textContent = `Hint: ${hint}`;
+        hintUsed = true; // Mark that the hint was used
+    } else {
+        hintElement.textContent = "No hint available for this word.";
+    }
+};
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", showGame);
 document.getElementById("instructions-btn").addEventListener("click", showInstructions);
@@ -247,5 +270,6 @@ guessInput.addEventListener("keypress", (e) => {
 });
 retryButton.addEventListener("click", startGame);
 document.getElementById("save-highscore-btn").addEventListener("click", saveHighscore);
+document.getElementById("hint-btn").addEventListener("click", showHint);
 
 // Initialize the game
