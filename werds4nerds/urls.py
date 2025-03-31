@@ -29,4 +29,5 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='game/logged_out.html'), name='logout'),
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('profile/<int:user_id>/', views.user_profile, name='user_profile'),
+    path('games/', views.games_page, name='games_page'),
 ]
