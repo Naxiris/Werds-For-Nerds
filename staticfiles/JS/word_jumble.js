@@ -259,6 +259,18 @@ const showHint = () => {
     }
 };
 
+// Skip the current word
+const skipWord = () => {
+    alert(`You skipped the word! No points awarded.`);
+    
+    // Reset for the next word
+    guessInput.value = "";
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    jumbleWordElement.textContent = shuffleWord(currentWord);
+    hintUsed = false;
+    document.getElementById("hint").textContent = "";
+};
+
 // Event listeners
 document.getElementById("start-btn").addEventListener("click", showGame);
 document.getElementById("instructions-btn").addEventListener("click", showInstructions);
@@ -271,6 +283,7 @@ guessInput.addEventListener("keypress", (e) => {
 retryButton.addEventListener("click", startGame);
 document.getElementById("save-highscore-btn").addEventListener("click", saveHighscore);
 document.getElementById("hint-btn").addEventListener("click", showHint);
+document.getElementById("skip-btn").addEventListener("click", skipWord);
 
 // Initialize the game
 
