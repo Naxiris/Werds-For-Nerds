@@ -88,7 +88,6 @@ body {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    padding: 1rem 0;
     color: white;
 }
 
@@ -121,6 +120,13 @@ body {
 }
 
 /* Game box default styling */
+.game-space {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .game-container, .menu-container {
     max-width: 400px;
     width: 100%;
@@ -128,6 +134,9 @@ body {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .hidden {
