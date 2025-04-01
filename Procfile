@@ -1,1 +1,1 @@
-web: gunicorn werds-for-nerds.wsgi
+web: gunicorn werds4nerds.wsgi
