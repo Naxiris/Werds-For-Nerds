@@ -216,8 +216,11 @@ body {
 /* Game box */
 .game-box {
     width: 90%;
-    height: 20rem;
-    background: #6c81db;
+    height: 35rem;
+    background-image: url('../images/word_scrambler.png'); /* Adjust the path as needed */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 20px auto;
     position: relative;
 }
