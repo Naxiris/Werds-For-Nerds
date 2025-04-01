@@ -18,12 +18,10 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #STATIC_ROOT
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 #add STATICFILES_DIRS
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
 # Quick-start development settings - unsuitable for production
@@ -33,7 +31,7 @@ STATICFILES_DIRS = [
 SECRET_KEY = 'django-insecure-**b%k#hb_l&*i%(nq!g*y5uk)bqib!cvs7am8#1c%=52n!38)w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['werds-for-nerds.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -48,7 +46,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
 ]
 
 MIDDLEWARE = [
