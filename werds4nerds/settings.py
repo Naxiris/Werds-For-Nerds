@@ -17,10 +17,10 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-#STATIC_ROOT
+# STATIC_ROOT
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-#add STATICFILES_DIRS
+# add STATICFILES_DIRS
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 
@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-**b%k#hb_l&*i%(nq!g*y5uk)bqib!cvs7am8#1c%=52n!38)w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['werds-for-nerds.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['werds-4-nerds-08c5149cdbd2.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
